@@ -12,24 +12,31 @@ namespace FibonacciNumbers
         static long fibonacci()
         {
             //Step 1 - Base values
-            long max = 2000000;
+            long max = 4000000;
             long x = 1;
             long y = 2;
-            long z = 0;
+            long z;
+            long even = 0;
+            
 
-            // Step 2 - add 2 terms to make a third
-            z = x + y;
+            while (x < max || y < max)
+            {
+                z = x + y;
+                x = y;
+                y = z;
 
-            // Step 3 -  transfer values to move onto further values
-            x = y;
-            y = z;
+                if (x % 2 == 0)
+                {
+                    even = even + x;
+                }
+                if (y % 2 == 0)
+                {
+                    even = even + y;
+                }
+            }
 
-            // Step 4 - repeat
-            // while(z < max) - prevent going above 4 million 
-            // { }
+            return even;
 
-
-            return z;
         }
 
     }
