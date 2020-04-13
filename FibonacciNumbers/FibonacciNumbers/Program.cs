@@ -16,7 +16,9 @@ namespace FibonacciNumbers
             long x = 1;
             long y = 2;
             long z;
-            long even = 0;
+
+            //even is set to start as 2 to take on the first even value from y
+            long even = 2;
             
 
             while (x < max || y < max)
@@ -24,19 +26,18 @@ namespace FibonacciNumbers
                 z = x + y;
                 x = y;
                 y = z;
+                
 
-                if (x % 2 == 0)
+                if (z % 2 == 0)
                 {
-                    even = even + x;
+                    even += z;
+                    Console.WriteLine(even);
                 }
-                if (y % 2 == 0)
-                {
-                    even = even + y;
-                }
+                
             }
 
-            return even;
 
+            return even;
         }
 
     }
